@@ -1,5 +1,4 @@
 # Bot4UnitTesting
-# Bot4UnitTesting
 
 ## Objective
 Develop a bot using the BESSER Bot Framework to assist in creating unit tests for functions. The bot will use OpenAI's GPT-3.5-turbo model to generate unit test cases based on user inputs and uploaded class files.
@@ -49,22 +48,41 @@ python3 test_bot.py
 
 ### Example
 
-**User**: I need to write tests for a function  
-**Bot**: What is the name of the function you want to test?  
-**User**: The function name is addNumbers  
-**Bot**: Please provide the parameters for the function.  
-**User**: It takes two integers as parameters  
-**Bot**: What should the function return under normal circumstances?  
-**User**: It should return the sum of both integers  
-**Bot**: Do you want to specify any conditions for the function?  
-**User**: If the parameter is null, it should return zero  
-**Bot**: What is the programming language of the function?  
-**User**: The programming language is Java  
-**Bot**: Which JUnit version are you using?  
-**User**: The JUnit version is 4  
-**Bot**: Please upload the class file or paste the class code for the function.  
-**User**: *Uploads the class file.*  
-**Bot**: Generated test case: ... Are these tests correct? If not, what would you like to modify?
+- :bust_in_silhouette: **User:** I need to write tests for a function
+- :robot: **Bot:** What is the name of the function you want to test?
+- :bust_in_silhouette: **User:** The function name is addNumbers
+- :robot: **Bot:** Please provide the parameters for the function.
+- :bust_in_silhouette: **User:** It takes two integers as parameters
+- :robot: **Bot:** What should the function return under normal circumstances?
+- :bust_in_silhouette: **User:** It should return the sum of both integers
+- :robot: **Bot:** Do you want to specify any conditions for the function?
+- :bust_in_silhouette: **User:** If the parameter is null, it should return zero
+- :robot: **Bot:** What is the programming language of the function?
+- :bust_in_silhouette: **User:** The programming language is Java
+- :robot: **Bot:** Which JUnit version are you using?
+- :bust_in_silhouette: **User:** The JUnit version is 4
+- :robot: **Bot:** Please upload the class file or paste the class code for the function.
+- :bust_in_silhouette: **User:** Uploads the class file.
+- :robot: **Bot:** Generated test case: ... Are these tests correct? If not, what would you like to modify?
+
+## Limitations
+
+- The bot currently supports only Java and JUnit for unit test generation.
+- The bot relies on the correctness of user inputs to generate accurate test cases.
+- The test cases generated are based on the information provided and may not cover all edge cases or specific requirements.
+- Limited support for complex class structures and dependencies.
+
+## Future Features
+
+- Support for additional programming languages (e.g., Python, C#).
+- Integration with other testing frameworks.
+- Enhanced validation and error-checking mechanisms for user inputs.
+- Automated handling of more complex class structures and dependencies.
+- Improved user interface for better interaction and ease of use.
+
+## References
+- [BESSER-Bot-Framework](https://github.com/BESSER-PEARL/BESSER-Bot-Framework)
+- [BESSER Bot Framework Documentation](https://besserbot-framework.readthedocs.io/en/latest/)
 
 ## Contribution
 

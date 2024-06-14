@@ -1,0 +1,7 @@
+question,answer
+I want to test a function,What function would you like to test today?
+I need to write tests for the addNumbers function,What parameters does addNumbers take?
+It takes two integers as parameters,What should it return under normal circumstances?
+It should return the sum of both numbers,Do you want to specify any conditions for the test?
+The function should throw an error if any parameter is null,Great, I have all the information. Would you like me to generate the test now?
+Yes, please,Generating your test case...

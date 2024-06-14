@@ -1,0 +1,55 @@
+# Chatbot generation template for unit test creation
+
+import logging
+
+from besser.bot.core.bot import Bot
+from besser.bot.core.session import Session
+
+# Configure the logging module
+logging.basicConfig(level=logging.INFO, format='{levelname} - {asctime}: {message}', style='{')
+
+# Create the bot
+bot = Bot('{{ bot_name }}')
+bot.load_properties('config.ini')
+websocket_platform = bot.use_websocket_platform(use_ui=True)
+
+# STATES
+central_state = bot.new_state('central_state', initial=True)
+{% for state_name in states.values() %}
+{{ state_name }} = bot.new_state('{{ state_name }}')
+{% endfor %}
+
+# INTENTS
+{% for state_name, questions in intents.items() %}
+{{ state_name }}_intent = bot.new_intent('{{ state_name }}_intent', [
+    {% for question in questions %}
+    "{{ question }}"{{ "," if not loop.last }}
+    {% endfor %}
+])
+{% endfor %}
+
+# STATES BODIES + TRANSITIONS
+def central_state_body(session: Session):
+    session.reply("Welcome to the Unit Test Assistant. How can I assist you in creating your unit tests?")
+central_state.set_body(central_state_body)
+
+{% for sanitized_answer, state_name in states.items() %}
+def {{ state_name }}_body(session: Session):
+    session.reply("{{ sanitized_answer }}")
+    session.go_to(central_state)
+
+{{ state_name }}.set_body({{ state_name }}_body)
+central_state.when_intent_matched_go_to({{ state_name }}_intent, {{ state_name }})
+{% endfor %}
+
+# Adding a fallback state to handle unmatched intents
+fallback_state = bot.new_state('fallback_state')
+def fallback_state_body(session: Session):
+    session.reply("I'm sorry, I didn't understand that. Can you please rephrase?")
+    session.go_to(central_state)
+
+fallback_state.set_body(fallback_state_body)
+
+# RUN APPLICATION
+if __name__ == '__main__':
+    bot.run()
