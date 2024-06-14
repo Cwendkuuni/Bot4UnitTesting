@@ -17,7 +17,7 @@ Develop a bot using the BESSER Bot Framework to assist in creating unit tests fo
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/Bot4UnitTesting.git
+    git clone https://github.com/Cwendkuuni/Bot4UnitTesting.git
     ```
 2. Navigate to the project directory:
     ```sh
@@ -37,7 +37,7 @@ Develop a bot using the BESSER Bot Framework to assist in creating unit tests fo
 Start the bot:
 ```sh
 python3 test_bot.py
-
+```
 
 ## Interaction Flow
 
